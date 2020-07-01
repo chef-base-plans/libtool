@@ -13,8 +13,7 @@ control 'core-plans-libtool-works' do
   (3) libtool --config should return non-empty text
   (4) libtool --config should contain all the above file and directory patterns
   (5a) all file patterns should exist on the system
-  (5b) all directories should exist on the system
-  '
+  (5b) all directories should exist on the system'
   
   # (1) installation directory should exist
   plan_installation_directory = command("hab pkg path #{plan_origin}/#{plan_name}")
