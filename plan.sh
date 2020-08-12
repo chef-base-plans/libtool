@@ -11,23 +11,18 @@ pkg_upstream_url="http://www.gnu.org/software/libtool"
 pkg_source="http://ftp.gnu.org/gnu/${pkg_name}/${pkg_name}-${pkg_version}.tar.gz"
 pkg_shasum="e3bd4d5d3d025a36c21dd6af7ea818a2afcd4dfc1ea5a17b39d7854bcd0c06e3"
 pkg_filename="${pkg_name}-${pkg_version}.tar.gz"
-# NOTE: including some obvious buildtime dependencies like
-# core/make and core/gcc because they are required by the runtime libtool.
-# Specifically libtool --config returns a configuration list of files and directories
-# that is defined at buildtime and then also used at runtime.  The buildtime location of
-# gcc, for example, is expected to also be available at runtime.
 pkg_deps=(
   core/glibc
   core/coreutils
   core/sed
   core/grep
   core/binutils
-  core/make
-  core/gcc
 )
 pkg_build_deps=(
   core/diffutils
   core/patch
+  core/make
+  core/gcc
   core/m4
 )
 pkg_bin_dirs=(bin)
