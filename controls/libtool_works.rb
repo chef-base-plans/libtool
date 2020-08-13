@@ -56,7 +56,7 @@ control 'core-plans-libtool-works' do
     /lt_truncate_bin="(?<dd_binary_fullpath>[^\s]+)\s+bs.*"/
   ]
   directories = /LTCFLAGS="(?<ltcflags_include_directories>.+)"/
-
+  
   # (4) libtool --config should contain all the above file and directory patterns
   all_patterns = files + [directories]
   all_patterns.each do |pattern|
@@ -72,13 +72,13 @@ control 'core-plans-libtool-works' do
       it { should exist }
     end
   end
-
+  
   # (5b) all directories should exist on the system
-  ltcflags_directories = (libtool_config_output.stdout.match directories)[1]
-  ltcflags_directories.split(" ").each do|item|
-    item.gsub!("-I","")
-    describe file(item) do
-      it { should exist }
-    end
-  end
+  # ltcflags_directories = (libtool_config_output.stdout.match directories)[1]
+  # ltcflags_directories.split(" ").each do|item|
+  #   item.gsub!("-I","")
+  #   describe file(item) do
+  #     it { should exist }
+  #   end
+  # end
 end
